@@ -30,3 +30,4 @@ Steps and thoughts while solving the various test questions.
 3. Used params for the credit/debit setup.
 4. Completed Q2 in main_two.
 5. Completed Q3 in main_three. It was just simpler.
+6. Added the postman testing setup for the API.
