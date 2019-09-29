@@ -1,8 +1,8 @@
-from two_async.async_functions import method_one, method_two, method_four, method_three
+from two_async.async_functions import method_one, method_two, method_three, method_four
 import asyncio
 
-async def main():
 
+async def main():
     """
     Question
 
@@ -13,15 +13,21 @@ async def main():
 
     :return: None
     """
-    result_list = []
+    tasks = [method_one(), method_two(), method_three(), method_four()]
+    result_list = await asyncio.gather(*tasks, return_exceptions=True)
 
     print(result_list)
-
 
 
 if __name__ == "__main__":
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
+
+    # Note: Python 3.7 has some nicer options than the current setup. Will be sticking to 3.5 to 3.6 here though.
+    try:
+        loop.run_until_complete(main())
+    finally:
+        loop.close()
 
     """
     Question:
